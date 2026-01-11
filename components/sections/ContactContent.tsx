@@ -11,18 +11,29 @@ export default function ContactContent() {
   return (
     <div className="pt-24">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/contact.png"
+            alt="Contact Us"
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Contact Us
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-xl text-white leading-relaxed">
               We&apos;d love to hear from you. Get in touch with us for inquiries, 
               admissions, or to schedule a school tour.
             </p>

@@ -13,18 +13,29 @@ export default function NewsContent() {
   return (
     <div className="pt-24">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/news.png"
+            alt="News & Events"
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               News & Events
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-xl text-white leading-relaxed">
               Stay updated with the latest happenings, announcements, and upcoming events 
               at Riara Schools
             </p>
@@ -137,14 +148,14 @@ export default function NewsContent() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             {[
-              { src: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&q=80', alt: 'Sports Day 2024', category: 'Sports' },
-              { src: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80', alt: 'Graduation Ceremony', category: 'Events' },
-              { src: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=400&q=80', alt: 'Science Fair', category: 'Academics' },
+              { src: '/images/football.png', alt: 'Sports Day 2026', category: 'Sports' },
+              { src: '/images/graduation.png', alt: 'Graduation Ceremony', category: 'Events' },
+              { src: '/images/riaralab.png', alt: 'Science Fair', category: 'Academics' },
               { src: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&q=80', alt: 'Music Festival', category: 'Arts' },
               { src: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=400&q=80', alt: 'Cultural Day', category: 'Events' },
               { src: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&q=80', alt: 'Debate Competition', category: 'Academics' },
               { src: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&q=80', alt: 'Art Exhibition', category: 'Arts' },
-              { src: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&q=80', alt: 'Field Trip', category: 'Activities' },
+              { src: '/images/field.png', alt: 'Field Trip', category: 'Activities' },
             ].map((photo, index) => (
               <motion.div
                 key={index}
@@ -202,12 +213,12 @@ export default function NewsContent() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
-              { title: 'National Science Fair', achievement: '1st Place - Chemistry Category', year: '2024' },
-              { title: 'Regional Music Festival', achievement: 'Gold Medal - Choral Music', year: '2024' },
-              { title: 'Inter-School Debate', achievement: 'Best Speaker Award', year: '2024' },
+              { title: 'National Science Fair', achievement: '1st Place - Chemistry Category', year: '2026' },
+              { title: 'Regional Music Festival', achievement: 'Gold Medal - Choral Music', year: '2026' },
+              { title: 'Inter-School Debate', achievement: 'Best Speaker Award', year: '2026' },
               { title: 'KCSE Examination', achievement: '95% Pass Rate', year: '2023' },
               { title: 'IGCSE Results', achievement: '92% A* and A Grades', year: '2023' },
-              { title: 'Sports Championship', achievement: 'Overall Champions', year: '2024' },
+              { title: 'Sports Championship', achievement: 'Overall Champions', year: '2026' },
             ].map((achievement, index) => (
               <motion.div
                 key={index}

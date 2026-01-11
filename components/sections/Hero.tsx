@@ -8,18 +8,18 @@ import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#6B2B5F]/90 via-[#6B2B5F]/90 to-[#4A1D42]/90 text-white">
+    <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden text-white">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&q=80"
+          src="/images/riaraschoolhomepage1stimg.png"
           alt="Riara Schools"
           fill
-          className="object-cover opacity-20"
+          className="object-cover"
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-riara-primary-dark/50" />
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
       {/* Content */}

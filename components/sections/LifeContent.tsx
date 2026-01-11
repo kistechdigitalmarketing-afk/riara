@@ -42,18 +42,31 @@ export default function LifeContent() {
   return (
     <div className="pt-24">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/life.png"
+            alt="Life at Riara Schools"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+        
+        <div className="relative z-10 container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Life at Riara Schools
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-xl text-white/90 leading-relaxed">
               A vibrant community where students grow, learn, and thrive through 
               academics, co-curricular activities, and meaningful connections
             </p>
@@ -106,12 +119,194 @@ export default function LifeContent() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: (categoryIndex * 0.1) + (index * 0.05), duration: 0.5 }}
+                        transition={{ delay: index * 0.1, duration: 0.5 }}
                       >
-                        <Card hover className="p-6">
+                        {activity.name === 'Football' ? (
+                          <div className="relative h-full min-h-[300px] rounded-lg overflow-hidden group">
+                            <Image
+                              src="/images/football.png"
+                              alt={activity.name}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            />
+                            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-all duration-300" />
+                            <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                              <h4 className="text-lg font-bold text-white mb-2">{activity.name}</h4>
+                              <p className="text-sm text-white/90">{activity.description}</p>
+                            </div>
+                          </div>
+                        ) : activity.name === 'Basketball' ? (
+                          <div className="relative h-full min-h-[300px] rounded-lg overflow-hidden group">
+                            <Image
+                              src="/images/basketball.png"
+                              alt={activity.name}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            />
+                            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-all duration-300" />
+                            <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                              <h4 className="text-lg font-bold text-white mb-2">{activity.name}</h4>
+                              <p className="text-sm text-white/90">{activity.description}</p>
+                            </div>
+                          </div>
+                        ) : activity.name === 'Swimming' ? (
+                          <div className="relative h-full min-h-[300px] rounded-lg overflow-hidden group">
+                            <Image
+                              src="/images/swimming.png"
+                              alt={activity.name}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            />
+                            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-all duration-300" />
+                            <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                              <h4 className="text-lg font-bold text-white mb-2">{activity.name}</h4>
+                              <p className="text-sm text-white/90">{activity.description}</p>
+                            </div>
+                          </div>
+                        ) : activity.name === 'Athletics' ? (
+                          <div className="relative h-full min-h-[300px] rounded-lg overflow-hidden group">
+                            <Image
+                              src="/images/riaraannualsports.png"
+                              alt={activity.name}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            />
+                            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-all duration-300" />
+                            <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                              <h4 className="text-lg font-bold text-white mb-2">{activity.name}</h4>
+                              <p className="text-sm text-white/90">{activity.description}</p>
+                            </div>
+                          </div>
+                        ) : activity.name === 'Tennis' ? (
+                          <div className="relative h-full min-h-[300px] rounded-lg overflow-hidden group">
+                            <Image
+                              src="/images/tennis.png"
+                              alt={activity.name}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            />
+                            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-all duration-300" />
+                            <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                              <h4 className="text-lg font-bold text-white mb-2">{activity.name}</h4>
+                              <p className="text-sm text-white/90">{activity.description}</p>
+                            </div>
+                          </div>
+                        ) : activity.name === 'Music Club' ? (
+                          <div className="relative h-full min-h-[300px] rounded-lg overflow-hidden group">
+                            <Image
+                              src="/images/music.png"
+                              alt={activity.name}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            />
+                            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-all duration-300" />
+                            <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                              <h4 className="text-lg font-bold text-white mb-2">{activity.name}</h4>
+                              <p className="text-sm text-white/90">{activity.description}</p>
+                            </div>
+                          </div>
+                        ) : activity.name === 'Drama Club' ? (
+                          <div className="relative h-full min-h-[300px] rounded-lg overflow-hidden group">
+                            <Image
+                              src="/images/drama.png"
+                              alt={activity.name}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            />
+                            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-all duration-300" />
+                            <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                              <h4 className="text-lg font-bold text-white mb-2">{activity.name}</h4>
+                              <p className="text-sm text-white/90">{activity.description}</p>
+                            </div>
+                          </div>
+                        ) : activity.name === 'Art Club' ? (
+                          <div className="relative h-full min-h-[300px] rounded-lg overflow-hidden group">
+                            <Image
+                              src="/images/art.png"
+                              alt={activity.name}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            />
+                            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-all duration-300" />
+                            <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                              <h4 className="text-lg font-bold text-white mb-2">{activity.name}</h4>
+                              <p className="text-sm text-white/90">{activity.description}</p>
+                            </div>
+                          </div>
+                        ) : activity.name === 'Science Club' ? (
+                          <div className="relative h-full min-h-[300px] rounded-lg overflow-hidden group">
+                            <Image
+                              src="/images/riarasciencefair.png"
+                              alt={activity.name}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            />
+                            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-all duration-300" />
+                            <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                              <h4 className="text-lg font-bold text-white mb-2">{activity.name}</h4>
+                              <p className="text-sm text-white/90">{activity.description}</p>
+                            </div>
+                          </div>
+                        ) : activity.name === 'Debate Society' ? (
+                          <div className="relative h-full min-h-[300px] rounded-lg overflow-hidden group">
+                            <Image
+                              src="/images/debate.png"
+                              alt={activity.name}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            />
+                            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-all duration-300" />
+                            <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                              <h4 className="text-lg font-bold text-white mb-2">{activity.name}</h4>
+                              <p className="text-sm text-white/90">{activity.description}</p>
+                            </div>
+                          </div>
+                        ) : activity.name === 'Environmental Club' ? (
+                          <div className="relative h-full min-h-[300px] rounded-lg overflow-hidden group">
+                            <Image
+                              src="/images/environment.png"
+                              alt={activity.name}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            />
+                            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-all duration-300" />
+                            <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                              <h4 className="text-lg font-bold text-white mb-2">{activity.name}</h4>
+                              <p className="text-sm text-white/90">{activity.description}</p>
+                            </div>
+                          </div>
+                        ) : activity.name === 'Scouts & Guides' ? (
+                          <div className="relative h-full min-h-[300px] rounded-lg overflow-hidden group">
+                            <Image
+                              src="/images/scouts.png"
+                              alt={activity.name}
+                              fill
+                              className="object-cover"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            />
+                            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-all duration-300" />
+                            <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                              <h4 className="text-lg font-bold text-white mb-2">{activity.name}</h4>
+                              <p className="text-sm text-white/90">{activity.description}</p>
+                            </div>
+                          </div>
+                        ) : (
+                          <Card hover className="p-6 h-full min-h-[300px]">
                           <h4 className="text-lg font-bold text-gray-900 mb-2">{activity.name}</h4>
                           <p className="text-sm text-gray-600">{activity.description}</p>
                         </Card>
+                        )}
                       </motion.div>
                     ))}
                   </div>
@@ -134,7 +329,7 @@ export default function LifeContent() {
             >
               <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80"
+                  src="/images/riaraschoolwelcome.png"
                   alt="Student Welfare"
                   fill
                   className="object-cover"
@@ -227,10 +422,102 @@ export default function LifeContent() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
               >
-                <Card hover className="p-6 h-full">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{facility.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{facility.description}</p>
-                </Card>
+                {facility.title === 'Accommodation' ? (
+                  <div className="relative h-full min-h-[250px] rounded-lg overflow-hidden group">
+                    <Image
+                      src="/images/housing.png"
+                      alt={facility.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-all duration-300" />
+                    <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                      <h3 className="text-xl font-bold text-white mb-3">{facility.title}</h3>
+                      <p className="text-white/90 leading-relaxed">{facility.description}</p>
+                    </div>
+                  </div>
+                ) : facility.title === 'Dining' ? (
+                  <div className="relative h-full min-h-[250px] rounded-lg overflow-hidden group">
+                    <Image
+                      src="/images/dinning.png"
+                      alt={facility.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-all duration-300" />
+                    <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                      <h3 className="text-xl font-bold text-white mb-3">{facility.title}</h3>
+                      <p className="text-white/90 leading-relaxed">{facility.description}</p>
+                    </div>
+                  </div>
+                ) : facility.title === 'Recreation' ? (
+                  <div className="relative h-full min-h-[250px] rounded-lg overflow-hidden group">
+                    <Image
+                      src="/images/recreation.png"
+                      alt={facility.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-all duration-300" />
+                    <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                      <h3 className="text-xl font-bold text-white mb-3">{facility.title}</h3>
+                      <p className="text-white/90 leading-relaxed">{facility.description}</p>
+                    </div>
+                  </div>
+                ) : facility.title === 'Study Facilities' ? (
+                  <div className="relative h-full min-h-[250px] rounded-lg overflow-hidden group">
+                    <Image
+                      src="/images/facility.png"
+                      alt={facility.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-all duration-300" />
+                    <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                      <h3 className="text-xl font-bold text-white mb-3">{facility.title}</h3>
+                      <p className="text-white/90 leading-relaxed">{facility.description}</p>
+                    </div>
+                  </div>
+                ) : facility.title === 'Security' ? (
+                  <div className="relative h-full min-h-[250px] rounded-lg overflow-hidden group">
+                    <Image
+                      src="/images/security.png"
+                      alt={facility.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-all duration-300" />
+                    <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                      <h3 className="text-xl font-bold text-white mb-3">{facility.title}</h3>
+                      <p className="text-white/90 leading-relaxed">{facility.description}</p>
+                    </div>
+                  </div>
+                ) : facility.title === 'Pastoral Care' ? (
+                  <div className="relative h-full min-h-[250px] rounded-lg overflow-hidden group">
+                    <Image
+                      src="/images/staff.png"
+                      alt={facility.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-all duration-300" />
+                    <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                      <h3 className="text-xl font-bold text-white mb-3">{facility.title}</h3>
+                      <p className="text-white/90 leading-relaxed">{facility.description}</p>
+                    </div>
+                  </div>
+                ) : (
+                  <Card hover className="p-6 h-full">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{facility.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{facility.description}</p>
+                  </Card>
+                )}
               </motion.div>
             ))}
           </div>

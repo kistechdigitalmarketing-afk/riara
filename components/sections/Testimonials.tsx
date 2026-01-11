@@ -1,8 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { testimonials } from '@/lib/data';
 import { cn } from '@/lib/utils';
@@ -21,6 +20,15 @@ export default function Testimonials() {
   const goToTestimonial = (index: number) => {
     setCurrentIndex(index);
   };
+
+  // Auto-advance testimonials
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }, 5000); // Change testimonial every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="py-20 bg-white">
@@ -50,27 +58,16 @@ export default function Testimonials() {
               transition={{ duration: 0.5 }}
               className="bg-white rounded-2xl shadow-lg p-8 md:p-12"
             >
-              <div className="flex items-start space-x-6">
-                <div className="relative w-20 h-20 rounded-full overflow-hidden flex-shrink-0 border-4 border-primary-100">
-                  <Image
-                    src={testimonials[currentIndex].image}
-                    alt={testimonials[currentIndex].name}
-                    fill
-                    className="object-cover"
-                    sizes="80px"
-                  />
-                </div>
-                <div className="flex-1">
-                  <Quote className="w-8 h-8 text-riara-secondary mb-4" />
-                  <p className="text-lg text-gray-700 mb-6 italic">
-                    &ldquo;{testimonials[currentIndex].content}&rdquo;
+              <div className="text-center">
+                <Quote className="w-12 h-12 text-riara-secondary mb-6 mx-auto" />
+                <p className="text-lg text-gray-700 mb-8 italic max-w-3xl mx-auto">
+                  &ldquo;{testimonials[currentIndex].content}&rdquo;
+                </p>
+                <div>
+                  <p className="font-bold text-gray-900 text-lg">
+                    {testimonials[currentIndex].name}
                   </p>
-                  <div>
-                    <p className="font-bold text-gray-900 text-lg">
-                      {testimonials[currentIndex].name}
-                    </p>
-                    <p className="text-riara-primary">{testimonials[currentIndex].role}</p>
-                  </div>
+                  <p className="text-riara-primary">{testimonials[currentIndex].role}</p>
                 </div>
               </div>
             </motion.div>

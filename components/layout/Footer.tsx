@@ -3,7 +3,7 @@ import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'luc
 import { quickLinks, contactInfo } from '@/lib/data';
 
 export default function Footer() {
-  const currentYear = 2024;
+  const currentYear = 2026;
 
   return (
     <footer className="bg-riara-primary-dark text-white/90">
@@ -138,6 +138,19 @@ export default function Footer() {
                 Terms of Service
               </Link>
             </div>
+          </div>
+          <div className="mt-4 text-right">
+            <p className="text-xs text-white/60">
+              Created by{' '}
+              <a
+                href="https://diginowsolutions.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-riara-accent transition-all duration-300 underline"
+              >
+                DigiNowSolutions
+              </a>
+            </p>
           </div>
         </div>
       </div>

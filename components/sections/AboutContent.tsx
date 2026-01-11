@@ -19,18 +19,31 @@ export default function AboutContent() {
   return (
     <div className="pt-24">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/riaraabout.png"
+            alt="Riara Schools"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+        
+        <div className="relative z-10 container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               About Riara Schools
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-xl text-white/90 leading-relaxed">
               Excellence in Education Since 1984 - Nurturing future leaders through quality 
               education, character development, and holistic growth.
             </p>
@@ -50,7 +63,7 @@ export default function AboutContent() {
             >
               <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80"
+                  src="/images/building.png"
                   alt="School History"
                   fill
                   className="object-cover"
@@ -199,7 +212,7 @@ export default function AboutContent() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {leadershipTeam.map((member, index) => (
               <motion.div
                 key={member.name}
@@ -207,9 +220,10 @@ export default function AboutContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
+                className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)]"
               >
                 <Card hover className="overflow-hidden">
-                  <div className="relative w-full aspect-[3/4]">
+                  <div className="relative w-full aspect-[4/3]">
                     <Image
                       src={member.image}
                       alt={member.name}

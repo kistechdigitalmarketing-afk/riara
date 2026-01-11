@@ -41,18 +41,31 @@ export default function AcademicsContent() {
   return (
     <div className="pt-24">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/academics.png"
+            alt="Academics"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+        
+        <div className="relative z-10 container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Academics at Riara Schools
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-xl text-white/90 leading-relaxed">
               Comprehensive educational programs designed to prepare students for success 
               in higher education and beyond
             </p>
@@ -137,31 +150,56 @@ export default function AcademicsContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2, duration: 0.8 }}
+                className="h-full"
               >
-                <Card hover className="p-8 h-full">
-                  <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mb-6 text-primary-600">
-                    <BookOpen className="w-8 h-8" />
+                <div className="relative h-full min-h-[400px] rounded-lg overflow-hidden group">
+                  {/* Background Image */}
+                  <div className="absolute inset-0">
+                    <Image
+                      src={
+                        key === 'prePrimary' 
+                          ? '/images/preprimary.png' 
+                          : key === 'primary' 
+                          ? '/images/primary.png' 
+                          : key === 'secondary'
+                          ? '/images/secondary.png'
+                          : '/images/riaraschoolwelcome.png'
+                      }
+                      alt={program.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-black/50 group-hover:bg-black/70 transition-all duration-300" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{program.title}</h3>
-                  <p className="text-sm text-primary-600 font-medium mb-4">Ages: {program.ageRange}</p>
-                  <p className="text-gray-600 mb-6 leading-relaxed">{program.description}</p>
-                  <div className="mb-6">
-                    <h4 className="font-bold text-gray-900 mb-3">Key Subjects:</h4>
-                    <ul className="space-y-2">
-                      {program.subjects.slice(0, 5).map((subject, idx) => (
-                        <li key={idx} className="flex items-start text-sm text-gray-600">
-                          <svg className="w-4 h-4 text-primary-600 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                          </svg>
-                          {subject}
-                        </li>
-                      ))}
-                    </ul>
+
+                  {/* Content */}
+                  <div className="relative z-10 h-full flex flex-col p-8 text-white">
+                    {/* Heading - Always Visible */}
+                    <div className="flex-1 flex items-center justify-center">
+                      <h3 className="text-2xl md:text-3xl font-bold text-center">{program.title}</h3>
+                    </div>
+
+                    {/* Details - Show on hover */}
+                    <div className="mt-6 space-y-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 max-h-0 group-hover:max-h-[1000px] overflow-hidden">
+                      <p className="text-sm text-primary-300 font-medium text-center">Ages: {program.ageRange}</p>
+                      <p className="text-white/90 leading-relaxed text-center">{program.description}</p>
+                      <div>
+                        <h4 className="font-bold text-white mb-3 text-center">Key Subjects:</h4>
+                        <ul className="space-y-2">
+                          {program.subjects.map((subject, idx) => (
+                            <li key={idx} className="flex items-start text-sm text-white/90">
+                              <svg className="w-4 h-4 text-primary-300 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                              </svg>
+                              {subject}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
                   </div>
-                  <Button asLink href="/admissions" variant="primary" className="w-full">
-                    Learn More
-                  </Button>
-                </Card>
+                </div>
               </motion.div>
             ))}
           </div>

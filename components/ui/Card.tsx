@@ -2,6 +2,7 @@ import { cn } from '@/lib/utils';
 import { ReactNode } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { GraduationCap, BookOpen, FlaskConical, Palette, LucideIcon } from 'lucide-react';
 
 interface CardProps {
   children: ReactNode;
@@ -101,33 +102,25 @@ interface ProgramCardProps {
 }
 
 export function ProgramCard({ title, description, icon }: ProgramCardProps) {
-  // Simple icon mapping - in a real app, you'd use a proper icon component
-  const IconComponent = () => {
-    switch (icon) {
-      case 'GraduationCap':
-        return <span className="text-4xl">🎓</span>;
-      case 'BookOpen':
-        return <span className="text-4xl">📚</span>;
-      case 'FlaskConical':
-        return <span className="text-4xl">🔬</span>;
-      case 'Palette':
-        return <span className="text-4xl">🎨</span>;
-      default:
-        return <span className="text-4xl">✨</span>;
-    }
+  // Icon mapping to lucide-react icons
+  const iconMap: Record<string, LucideIcon> = {
+    'GraduationCap': GraduationCap,
+    'BookOpen': BookOpen,
+    'FlaskConical': FlaskConical,
+    'Palette': Palette,
   };
 
+  const IconComponent = iconMap[icon] || GraduationCap;
+
   return (
-    <Card hover className="p-6 text-center">
+    <Card hover className="p-6 text-center h-full flex flex-col">
       <div className="mb-4 flex justify-center">
         <div className="w-16 h-16 bg-riara-secondary rounded-full flex items-center justify-center">
-          <div className="text-riara-primary">
-            <IconComponent />
-          </div>
+          <IconComponent className="w-8 h-8 text-riara-primary" />
         </div>
       </div>
       <h3 className="text-xl font-bold text-gray-900 mb-2">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+      <p className="text-gray-600 flex-grow">{description}</p>
     </Card>
   );
 }

@@ -29,7 +29,7 @@ export default function HomePage() {
             >
               <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80"
+                  src="/images/riaraschoolwelcome.png"
                   alt="Principal's Message"
                   fill
                   className="object-cover"
@@ -93,6 +93,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
+                className="h-full"
               >
                 <ProgramCard {...program} />
               </motion.div>
