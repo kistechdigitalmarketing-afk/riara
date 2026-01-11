@@ -26,7 +26,7 @@ export default function Error({
           Something went wrong!
         </h1>
         <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-          We're sorry for the inconvenience. An error occurred while loading this page. 
+          We&apos;re sorry for the inconvenience. An error occurred while loading this page. 
           Please try again or return to the homepage.
         </p>
         {error.digest && (

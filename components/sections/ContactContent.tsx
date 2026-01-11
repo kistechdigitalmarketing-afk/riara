@@ -23,7 +23,7 @@ export default function ContactContent() {
               Contact Us
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
-              We'd love to hear from you. Get in touch with us for inquiries, 
+              We&apos;d love to hear from you. Get in touch with us for inquiries, 
               admissions, or to schedule a school tour.
             </p>
           </motion.div>
@@ -147,7 +147,7 @@ export default function ContactContent() {
                 Send Us a Message
               </h2>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                Fill out the form below and we'll get back to you as soon as possible. 
+                Fill out the form below and we&apos;ll get back to you as soon as possible. 
                 For urgent inquiries, please call us directly.
               </p>
               <Card className="p-8">
@@ -166,7 +166,7 @@ export default function ContactContent() {
                 Visit Us
               </h2>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                We're located in a convenient location in Nairobi. Schedule a school tour 
+                We&apos;re located in a convenient location in Nairobi. Schedule a school tour 
                 to visit our facilities and experience the vibrant community at Riara Schools.
               </p>
               <Card className="overflow-hidden">
@@ -236,7 +236,7 @@ export default function ContactContent() {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
               >
                 <Card hover className="p-6 text-center">
-                  <h3 className="text-lg font-bold text-gray-900 mb-4">{department.title}</h3>
+                  <h3 className="text-lg font-bold text-gray-900 mb-4" dangerouslySetInnerHTML={{ __html: department.title.replace(/'/g, '&apos;') }} />
                   <a
                     href={`mailto:${department.email}`}
                     className="text-primary-600 hover:text-primary-700 transition-colors block mb-2 text-sm break-all"

@@ -171,7 +171,7 @@ export default function AdmissionsContent() {
               <div className="mt-8 pt-6 border-t border-gray-200">
                 <p className="text-sm text-gray-600 mb-4">
                   <strong>Note:</strong> Admission requirements may vary by level. Please contact 
-                  the admissions office for specific requirements for your child's grade level.
+                  the admissions office for specific requirements for your child&apos;s grade level.
                 </p>
                 <Button
                   asLink
